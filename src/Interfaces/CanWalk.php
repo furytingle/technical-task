@@ -5,5 +5,5 @@ namespace Core\Interfaces;
 
 interface CanWalk
 {
-    public function walk() : void;
+    public function walk() : string;
 }

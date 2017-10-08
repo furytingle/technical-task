@@ -5,8 +5,6 @@ namespace Core\Traits;
 
 trait CanRun
 {
-    use CanWalk;
-
     public function run() : string
     {
         return $this->name . ' runs';

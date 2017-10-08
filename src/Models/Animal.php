@@ -1,12 +1,15 @@
 <?php
 declare(strict_types=1);
 
-namespace Core\Animals;
+namespace Core\Models;
 
-class Animal
+use Core\Interfaces\AnimalInterface;
+
+class Animal implements AnimalInterface
 {
     protected $name = 'anonymous ' . __CLASS__;
     protected $nutrition = [];
+    protected $sound = 'nothing';
 
     public function setName($name) : void
     {
@@ -18,12 +21,17 @@ class Animal
         return $this->name;
     }
 
-    public function eat($food) : string
+    public function eat(string $food = 'empty') : string
     {
         if (in_array(strtolower($food), $this->nutrition)) {
             return 'OM NOM NOM';
         }
 
-        return $this->getName() . ' does not like ' . $food . '\n';
+        return $this->getName() . ' does not like ' . $food;
+    }
+
+    public function say() : string
+    {
+        return $this->getName() . ' says ' . $this->sound;
     }
 }
